@@ -1,0 +1,18 @@
+Battle Tank problem breakdown.
+
+The Battle Tank will operate similar to the Battle City on NES.
+
+During gameplay, the player controls a tank capable of moving up, down, left and
+right. The player controlled tank can shoot bullets at a varying rate of fire.
+As the player collects power-ups the type of tank changes.
+
+Depending on the type of tank, the rate of fire and the number of hits required
+to destroy a tank changes. 
+
+All bullets do the same amount of damage but some bullets are faster than others.
+
+The player shoots enemy tanks. Like the player's tank, enemy tanks vary in type,
+durability, rate of fire and speed of bullet. Unlike the player's tank, some 
+enemy tanks are faster than others.
+
+Add the rest about the game (bricks, birds, etc.)
