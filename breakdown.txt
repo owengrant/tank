@@ -16,3 +16,54 @@ durability, rate of fire and speed of bullet. Unlike the player's tank, some
 enemy tanks are faster than others.
 
 Add the rest about the game (bricks, birds, etc.)
+
+*******************************Resources****************************************
+
+Images:
+    - two player avatars
+    - tanks:
+        - 4 tanks for player 1
+        - 4 tanks for player 2
+        - 4 enemy tanks
+    - one bullet
+    - one explosion gif
+    - one tank creation gif
+
+Sounds:
+    - background
+    - start sound
+    - bullet fire sound
+    - explosion sound
+
+*******************************Design*******************************************
+noun - 
+    - player, player tanks, tank, bullet, rate of fire, power-ups, type
+    - number of hits, damage, enemy tanks, speed of bullet
+
+verbs - controls, moving, shoot
+
+entities -
+    - player {
+        nouns - tank, lives, score
+        verbs - control tank movement and shooting
+    }
+    
+    - tank {
+        nouns - type of tank, bullet interval, durability, speed, location
+        verbs - move up, move down, move left, move right, shoot, die, upgrade
+    }
+    
+    - bullet  {
+        nouns - type of bullet, damage, speed, location
+        verbs - move, destroy
+    }
+    
+    - enemy brain {
+        nouns - tank
+        verbs - control enemy tank movement and shooting
+    }
+
+    - enemy tank manager {
+        nouns - collection of tanks
+        verbs - create tank, remove tank
+    }
