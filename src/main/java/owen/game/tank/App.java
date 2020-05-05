@@ -51,8 +51,7 @@ public class App extends GameApplication {
         tank = Tank.create(Tank.Type.PLAYER_TANK1, 300, 300);
         PlayerControls playerControls = new PlayerControls(tank);
         FXGL.getGameTimer().runOnceAfter(() -> {
-            var newTank = tank.upgrade(Tank.Type.PLAYER_TANK4); 
-            playerControls.setTank(newTank);
+            var newTank = tank.upgrade(Tank.Type.PLAYER_TANK4);
         }, Duration.millis(5000));
     }
 
