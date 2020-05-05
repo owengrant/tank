@@ -9,6 +9,6 @@ package owen.game.tank.entities;
  *
  * @author owen
  */
-public class EntityUtils {
+public class AssetUtils {
     public final static String PLAYER1_TANK4 = "player1_tank4";
 }
