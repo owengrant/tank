@@ -68,24 +68,33 @@ public class Tank {
     }
     
     public void die() {
-        
+        life = 0;
+        entity.removeFromWorld();
     }
     
-    public void upgrade() {
-        
+    public Tank upgrade(Type newType) {
+        var newTank = create(newType, entity.getX(), entity.getY());
+        var newEntity = newTank.getEntity();
+        newEntity.setRotation(entity.getRotation());
+        entity.removeFromWorld();
+        entity = newTank.getEntity();
+        return newTank;
     } 
     
     public static Tank create(Type type, double x, double y) {
         var tank = new Tank();
+         var entity = FXGL.entityBuilder().at(x, y); 
         switch(type) {
+            case PLAYER_TANK1: {
+                entity.viewWithBBox(AssetUtils.PLAYER1_TANK1);
+                break;
+            }
             case PLAYER_TANK4: {
-                var entity = FXGL.entityBuilder()
-                    .at(x, y)
-                    .viewWithBBox(AssetUtils.PLAYER1_TANK4)
-                    .buildAndAttach();
-                tank.setEntity(entity);
+               entity.viewWithBBox(AssetUtils.PLAYER1_TANK4);
+               break;
             }
         }
+        tank.setEntity(entity.buildAndAttach());
         return tank;
     }
         
