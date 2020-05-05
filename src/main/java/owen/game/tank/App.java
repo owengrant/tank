@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import owen.game.tank.controls.PlayerControls;
 import owen.game.tank.entities.Tank;
 
@@ -47,8 +48,12 @@ public class App extends GameApplication {
     protected void initGame() {
         var x = FXGL.getAppWidth()/2;
         var y = FXGL.getAppHeight();
-        tank = Tank.create(Tank.Type.PLAYER_TANK4, 300, 300);
+        tank = Tank.create(Tank.Type.PLAYER_TANK1, 300, 300);
         PlayerControls playerControls = new PlayerControls(tank);
+        FXGL.getGameTimer().runOnceAfter(() -> {
+            var newTank = tank.upgrade(Tank.Type.PLAYER_TANK4); 
+            playerControls.setTank(newTank);
+        }, Duration.millis(5000));
     }
 
     @Override
