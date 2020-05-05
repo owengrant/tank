@@ -10,5 +10,8 @@ package owen.game.tank.entities;
  * @author owen
  */
 public class AssetUtils {
+    
+    public final static String PLAYER1_TANK1 = "player1_tank1.png";
     public final static String PLAYER1_TANK4 = "player1_tank4.png";
+
 }
