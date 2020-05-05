@@ -15,6 +15,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import owen.game.tank.controls.PlayerControls;
 import owen.game.tank.entities.Tank;
 
 /**
@@ -31,46 +32,7 @@ public class App extends GameApplication {
 
     @Override
     protected void initInput() {
-        Input input = FXGL.getInput();
-
-        input.addAction(new UserAction("Move Right") {
-            @Override
-            protected void onAction() {
-                player.translateX(5); // move right 5 pixels
-                FXGL.getGameState().increment("pixelsMoved", +5);
-            }
-        }, KeyCode.D);
-
-        input.addAction(new UserAction("Move Left") {
-            @Override
-            protected void onAction() {
-                player.translateX(-5); // move left 5 pixels
-                FXGL.getGameState().increment("pixelsMoved", +5);
-            }
-        }, KeyCode.A);
-
-        input.addAction(new UserAction("Move Up") {
-            @Override
-            protected void onAction() {
-                player.translateY(-5); // move up 5 pixels
-                FXGL.getGameState().increment("pixelsMoved", +5);
-            }
-        }, KeyCode.W);
-
-        input.addAction(new UserAction("Move Down") {
-            @Override
-            protected void onAction() {
-                player.translateY(5); // move down 5 pixels
-                FXGL.getGameState().increment("pixelsMoved", +5);
-            }
-        }, KeyCode.S);
-
-        input.addAction(new UserAction("Play Sound") {
-            @Override
-            protected void onActionBegin() {
-                FXGL.play("drop.wav");
-            }
-        }, KeyCode.F);
+        
     }
 
     @Override
@@ -86,6 +48,7 @@ public class App extends GameApplication {
         var x = FXGL.getAppWidth()/2;
         var y = FXGL.getAppHeight();
         tank = Tank.create(Tank.Type.PLAYER_TANK4, 300, 300);
+        PlayerControls playerControls = new PlayerControls(tank);
     }
 
     @Override

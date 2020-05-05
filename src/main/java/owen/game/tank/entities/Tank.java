@@ -43,20 +43,24 @@ public class Tank {
     }
           
     
-    public void moveUp() {
-        
+    public void moveUp() {            
+        entity.setRotation(0);
+        entity.translateY(-speed);
     }
     
-    public void moveDown() {
-        
+    public void moveDown() {        
+        entity.setRotation(180);
+        entity.translateY(speed);
     }
     
-    public void moveLeft() {
-        
+    public void moveLeft() {        
+        entity.setRotation(270);
+        entity.translateX(-speed);
     }
     
     public void moveRight() {
-        
+        entity.setRotation(90);
+        entity.translateX(speed);
     }
     
     public void shoot() {
@@ -77,7 +81,7 @@ public class Tank {
             case PLAYER_TANK4: {
                 var entity = FXGL.entityBuilder()
                     .at(x, y)
-                    .view(AssetUtils.PLAYER1_TANK4)
+                    .viewWithBBox(AssetUtils.PLAYER1_TANK4)
                     .buildAndAttach();
                 tank.setEntity(entity);
             }
