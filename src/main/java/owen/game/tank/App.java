@@ -12,8 +12,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import owen.game.tank.entities.Tank;
 
 /**
  * JavaFX App
@@ -21,8 +23,8 @@ import javafx.stage.Stage;
 public class App extends GameApplication {
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(600);
-        settings.setHeight(600);
+        settings.setWidth(1200);
+        settings.setHeight(900);
         settings.setTitle("Basic Game App");
         settings.setVersion("0.1");
     }
@@ -77,31 +79,18 @@ public class App extends GameApplication {
     }
 
     private Entity player;
+    private Tank tank;
 
     @Override
     protected void initGame() {
-        player = FXGL.entityBuilder()
-                .at(300, 300)
-                //.view(new Rectangle(25, 25, Color.BLUE))
-                .view("brick.png")
-                .buildAndAttach();
+        var x = FXGL.getAppWidth()/2;
+        var y = FXGL.getAppHeight();
+        tank = Tank.create(Tank.Type.PLAYER_TANK4, 300, 300);
     }
 
     @Override
     protected void initUI() {
-        Text textPixels = new Text();
-        textPixels.setTranslateX(50); // x = 50
-        textPixels.setTranslateY(100); // y = 100
 
-        textPixels.textProperty().bind(FXGL.getGameState().intProperty("pixelsMoved").asString());
-
-        FXGL.getGameScene().addUINode(textPixels); // add to the scene graph
-
-        var brickTexture = FXGL.getAssetLoader().loadTexture("brick.png");
-        brickTexture.setTranslateX(50);
-        brickTexture.setTranslateY(450);
-
-        FXGL.getGameScene().addUINode(brickTexture);
     }
 
     public static void main(String[] args) {
